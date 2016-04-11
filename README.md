@@ -15,10 +15,10 @@ screenshot for overview
 
 ###node.js based server example
 
-#####server.js
+#####node.js/server.js
 express.js based JS server code
 
-#####routes.js
+#####node.js/routes.js
 router to manage server endpoints
 
 ###HTML/CSS front end example (http://alexmaiorov.com/rhizome/styleguide/)
