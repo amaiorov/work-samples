@@ -1,0 +1,100 @@
+$debug: (
+	debug: (
+		image: show,
+		output: overlay
+	)
+);
+
+$susy: (
+	columns: 12,
+	container: 1440px,
+	gutters: .25,
+	global-box-sizing: border-box,
+);
+
+$grid-no-gutters: (
+	columns: 12,
+	container: 1440px,
+	gutters: 0,
+	global-box-sizing: border-box,
+);
+
+@if compass-env() == 'development' {
+	$susy: map-merge($susy, $debug);
+	$grid-no-gutters: map-merge($grid-no-gutters, $debug);
+}
+
+.grid{
+	@include container(12);
+	width: 96%;
+
+	&:not(.no-gutters){
+		@for $i from 1 through 12 {
+			.c#{$i}{
+				@include span($i);
+				margin-bottom: gutter();
+
+				@include breakpoint($break_mobile) {
+					margin-bottom: span(1);
+				}
+			}
+			.c#{$i}f{
+				@include span($i first);
+				margin-bottom: gutter();
+
+				@include breakpoint($break_mobile) {
+					margin-bottom: span(1);
+				}
+			}
+			.c#{$i}l{
+				@include span($i last);
+				margin-bottom: gutter();
+
+				@include breakpoint($break_mobile) {
+					margin-bottom: span(1);
+				}
+			}
+			.push#{$i}{
+				@include push($i);
+			}
+		}
+	}
+
+	&.no-gutters{
+		@include with-layout($grid-no-gutters) {
+			@for $i from 1 through 12 {
+				.c#{$i}{
+					@include span($i);
+				}
+				.c#{$i}f{
+					@include span($i first);
+				}
+				.c#{$i}l{
+					@include span($i last);
+				}
+				.push#{$i}{
+					@include push($i);
+				}
+			}
+		}
+	}
+
+	@include breakpoint($break_mobile) {
+		&:not(.no-gutters), &.no-gutters{
+			@for $i from 1 through 12 {
+				.c#{$i}{
+					@include full;
+				}
+				.c#{$i}f{
+					@include full;
+				}
+				.c#{$i}l{
+					@include full;
+				}
+				.push#{$i}{
+					@include push(0);
+				}
+			}
+		}
+	}
+}

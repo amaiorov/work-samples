@@ -1,0 +1,19 @@
+@include keyframes(fade-in-from-bottom) {
+  0% {
+    opacity: 0;
+    @include translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    @include translateY(0px);
+  }
+}
+
+@include keyframes(altering-colors) {
+  0%{
+  	background: $color_crayon_blue;
+  }
+  100%{
+  	background: $color_picton_blue;
+  }
+}

@@ -1,0 +1,265 @@
+#typography-page{
+	.masthead {
+		background: $color_lime;
+	}
+	>section {
+		&[data-id="primary-typeface"], &[data-id="secondary-typeface"] {
+			h6{
+				font-size: 8.4rem;
+				margin-bottom: span(.75);
+			}
+
+			.sample{
+				span{
+					&:first-child{
+						text-align: right;
+						font-size: .8rem;
+					}
+					&:last-child{
+						font-size: 2rem;
+						line-height: 1;
+						letter-spacing: .2rem;
+						text-transform: none;
+					}
+				}
+			}
+
+			@include breakpoint($break_mobile) {
+				h6{
+					font-size: 10vw;
+				}
+
+				.sample{
+					span{
+						&:first-child{
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+
+		&[data-id="primary-typeface"] {
+			h6{
+				font-family: $font_gza;
+			}
+
+			.sample{
+				span:last-child{
+					font-family: $font_gza;
+				}
+
+				&.italic{
+					span:last-child{
+						font-family: $font_gza_italic;
+					}
+				}
+			}
+		}
+
+		&[data-id="secondary-typeface"] {
+			h6{
+				font-family: $font_fugue;
+			}
+
+			.sample{
+				span:last-child{
+					font-family: $font_fugue;
+				}
+
+				&.headline{
+					span:last-child{
+						font-family: $font_fugue_headline;
+					}
+				}
+				&.italic{
+					span:last-child{
+						font-family: $font_fugue_italic;
+					}
+				}
+				&.mono{
+					span:last-child{
+						font-family: $font_fugue_mono;
+					}
+				}
+			}
+		}
+
+
+		&[data-id="primary-styles"] {
+			margin: 0 !important;
+			background-color: black;
+
+			.caption{
+				margin-bottom: 2rem;
+				font-size: .9rem;
+				font-family: $font_fugue_headline;
+				line-height: 1.5;
+
+				span:first-child{
+					color: white;
+				}
+			}
+
+			.sample{
+				font-size: 3.6rem;
+				font-family: $font_gza;
+				text-transform: none;
+				line-height: 1.2;
+				color: white;
+
+				&.italic{
+					font-size: 6rem;
+					font-family: $font_gza_italic;
+
+					.underlined{
+						font-size: 4.8rem;
+						text-decoration: underline;
+						text-align: right;
+					}
+				}
+			}
+
+			span{
+				display: block;
+			}
+
+			.grid >div{
+				margin-top: span(1.5);
+				margin-bottom: span(1.5);
+			}
+
+			@include breakpoint($break_mobile) {
+				.sample{
+					&.italic{
+						.underlined{
+							max-width: 60%;
+						}
+					}
+				}
+			}
+		}
+
+		&[data-id="secondary-styles"] {
+			margin: 0 !important;
+			background-color: $color_patterns_blue;
+			
+			h6,p{
+				font-family: $font_fugue_headline;
+				color: black;
+			}
+
+			h6{
+				font-size: 1.4rem;
+				line-height: 1.2;
+				margin-bottom: 3rem;
+			}
+
+			p{
+				font-size: 1.3rem;
+				line-height: 1.4;
+			}
+
+			span{
+				display: block;
+			}
+
+			.grid{
+				padding-top: span(1);
+				padding-bottom: span(1);
+			}
+
+			.caption{
+				font-size: .9rem;
+				line-height: 1.4;
+				color: $color_light_gray;
+
+				span:first-child{
+					color: black;
+				}
+			}
+
+			.icon{
+				font-size: .9rem;
+				margin-right: 1rem;
+			}
+
+			.description p{
+				color: $color_light_gray;
+				font-size: .9rem;
+				margin-bottom: 2rem;
+
+				&.caption{
+					color: black;
+				}
+			}
+
+			.style-1 .sample{
+				margin-top: 5rem;
+			}
+
+			.style-2 .sample{
+				position: relative;
+				margin-bottom: 5rem;
+				min-height: 20rem;
+				font-size: 3.6rem;
+
+				>div{
+					position: absolute;
+					top: 50%;
+					display: inline-block;
+					@include translateY(-50%);
+				}
+
+				@include breakpoint($break_mobile) {
+					min-height: auto;
+
+					>div{
+						position: static;
+						@include translateY(0);
+					}
+				}
+
+				span{
+					&:first-child{
+						font-family: $font_fugue_headline;
+						letter-spacing: 1rem;
+						margin-bottom: 1.5rem;
+						@include scale(-1, -1);
+					}
+
+					&:last-child{
+						font-family: $font_gza;
+					}
+				}
+
+				&.type-1 >div{
+					text-align: center;
+				}
+
+				&.type-2 >div{
+					text-align: right;
+
+					span:first-child{
+						text-align: left;
+					}
+				}
+			}
+
+			.gradient{
+				@include retina-background( 'pages/typography/gradient.jpg' );
+				background-position: center center;
+				background-size: cover;
+
+				.grid{
+					padding-top: 4rem;
+					padding-bottom: 4rem;
+				}
+
+				p{
+					color: white;
+				}
+			}
+		}
+	}
+}

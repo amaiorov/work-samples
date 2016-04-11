@@ -1,0 +1,46 @@
+#color-page{
+	.masthead {
+		background: $color_purple_heart;
+	}
+	>section {
+		&[data-id="origin"] {
+			p{
+				margin-bottom: span(.75);
+			}
+		}
+
+		&[data-id="color-palette"] {
+			.colors{
+				li{
+					margin-bottom: span(.8);
+				}
+
+				.swatch{
+					height: 0;
+					padding-bottom: 40%;
+
+					&.black, &.white{
+						padding-bottom: 20%;
+					}
+				}
+
+				p{
+					margin-top: 1rem;
+					text-align: right;
+
+					>span{
+						display: block;
+					}
+				}
+			}
+		}
+
+		.swatch{
+			@include box-sizing(border-box);
+
+			&.white{
+				border: 1px solid black;
+			}
+		}
+	}
+}

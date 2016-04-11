@@ -1,0 +1,937 @@
+{namespace template autoescape="false"}
+
+/**
+ * Main Structure
+ */
+{template .Main}
+<aside id="sidebar">
+	<nav>
+		<section>
+			<a href="#intro">Intro</a>
+		</section>
+
+		<section>
+			<a href="#logo">Logo</a>
+			<ul>
+				<li><a href="#logo/overview">Overview</a></li>
+				<li><a href="#logo/size">Size</a></li>
+				<li><a href="#logo/construction">Construction</a></li>
+				<li><a href="#logo/usage">Usage</a></li>
+				<li><a href="#logo/incorrect-usage">Incorrect Usage</a></li>
+			</ul>
+		</section>
+
+		<section>
+			<a href="#color">Color</a>
+			<ul>
+				<li><a href="#color/origin">Origin</a></li>
+				<li><a href="#color/color-palette">Color Palette</a></li>
+			</ul>
+		</section>
+
+		<section>
+			<a href="#typography">Typography</a>
+			<ul>
+				<li><a href="#typography/primary-typeface">Primary Typeface</a></li>
+				<li><a href="#typography/modified-characters">Modified Characters</a></li>
+				<li><a href="#typography/secondary-typeface">Secondary Typeface</a></li>
+				<li><a href="#typography/primary-styles">Primary Styles</a></li>
+				<li><a href="#typography/secondary-styles">Secondary Styles</a></li>
+			</ul>
+		</section>
+
+		<section>
+			<a href="#design-elements">Design Elements</a>
+			<ul>
+				<li><a href="#design-elements/photography">Photography</a></li>
+				<li><a href="#design-elements/backgrounds">Backgrounds</a></li>
+				<li><a href="#design-elements/icons">Icons</a></li>
+			</ul>
+		</section>
+
+		<section>
+			<a href="#examples">Examples</a>
+			<ul>
+				<li><a href="#examples/business-card">Business Card</a></li>
+				<li><a href="#examples/letterhead">Letterhead</a></li>
+				<li><a href="#examples/envelope">Envelope</a></li>
+				<li><a href="#examples/mailing-label">Mailing Label</a></li>
+				<li><a href="#examples/thank-you-card">Thank You Card</a></li>
+				<li><a href="#examples/poster">Poster</a></li>
+				<li><a href="#examples/apparel">Apparel</a></li>
+				<li><a href="#examples/bags">Bags</a></li>
+				<li><a href="#examples/lollipops">Lollipops</a></li>
+			</ul>
+		</section>
+	</nav>
+	<div class="hamburger"></div>
+</aside>
+
+<div id="page-view">
+	<div id="page-container">
+	</div>
+</div>
+{/template}
+
+
+/**
+ * Framed Button
+ * @param text The text on the button.
+ * @param? href The href attribute to define the link address.
+ * @param? target The target attribute specifies where to open the linked document.
+ * @param? classes The additonal class names.
+ */
+{template .FramedButton}
+<a class="framed-button {if $classes}{ $classes }{/if}" {if $href}href="{ $href }"{/if} target="{if $target}{ $target }{else}_blank{/if}" data-text="{ $text }">
+	<span>{ $text }</span>
+</a>
+{/template}
+
+
+/**
+ * Page
+ */
+{template .Page}
+<div class="page">
+</div>
+{/template}
+
+
+/**
+ * Intro Page
+ */
+{template .IntroPage}
+<div id="intro-page" class="page">
+
+	<section class="full">
+		<div class="grid">
+			<h1 class="c6 push3">
+				<span class="logo">RHIZOME</span>
+				<span>Identity</span>
+				<span class="icon icon-swiggle"></span>
+				<span>Style Guide</span>
+				<span class="year">— 2015</span>
+				<span class="icon icon-arrow-down"></span>
+			</h1>
+		</div>
+	</section>
+
+	<section class="full">
+		<div class="grid">
+			<div class="introduction">
+				<p>RHIZOME supports contemporary art that creates richer and more critical digital cultures. As an arts organization based on the Internet, RHIZOME rethinks artistic creation, distribution, and reception in relation to changing conditions associated with network technologies: shifting attentions, uncertain objects, multiple authors, casual labors.</p>
+				<p>This style guide presents how RHIZOME’s identity aligns with its vision.</p>
+			</div>
+		</div>
+	</section>
+	
+</div>
+{/template}
+
+
+/**
+ * Logo Page
+ * @param canDownloadPng The ability to download logo as PNG format.
+ */
+{template .LogoPage}
+<div id="logo-page" class="page">
+	<section class="masthead">
+		<div class="loader"></div>
+		<div class="grid">
+			<h2>
+				<span class="skewed">LOGO</span>
+				<span>HOW TO DEAL WITH THE LOGO GENERATOR, SIZE</span>
+				<span>AND PROPORTIONS, INTRODUCTION TO FRIENDS OF</span>
+				<span>RHIZOME, EXAMPLES OF WHAT NOT TO DO & MORE</span>
+			</h2>
+		</div>
+	</section>
+
+	<section data-id="overview">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Overview</h3>
+			</div>
+			<div class="c12 framed-button-container download-button-container">
+				{call .FramedButton}
+					{param text:'Download Current Logo As JPG' /}
+					{param classes:'download-logo-jpg-button' /}
+				{/call}
+				<br>
+				{if $canDownloadPng == true}
+				{call .FramedButton}
+					{param text:'Download Current Logo As PNG' /}
+					{param classes:'download-logo-png-button' /}
+				{/call}
+				{else}
+				<p class="no-png c3l">To download the logo with transparency,<br>please use Safari 8.0 or the latest version.</p>
+				{/if}
+			</div>			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Get Living Logo' /}
+					{param href:'https://github.com/WiedenKennedyNYC/Rhizome-Logo' /}
+				{/call}
+			</div>
+			<p class="c6 push3">Starting on the day it was approved as rhizome’s identity, this logo displaces a pixel every time someone sees it. according to our calculations, the logo should completely transform itself into another look sometime around late 2018. we call that the "post logo state". anyway, below you’ll see a timeline that shows the transformation of the logo. no one other than rhizome employees should see this transformation before it happens as the whole point is to have people see a different logo every time they visit the site.</p>
+			<div class="scroll-box c6 push3">
+				<div class="icon icon-clock"></div>
+				<div class="piece push1">
+					<span>Starting Point</span>
+					<img src="images/pages/logo/logo-1.png" srcset="images/pages/logo/logo-1@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>200K Views</span>
+					<img src="images/pages/logo/logo-2.png" srcset="images/pages/logo/logo-2@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>800K Views</span>
+					<img src="images/pages/logo/logo-3.png" srcset="images/pages/logo/logo-3@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>2M Views</span>
+					<img src="images/pages/logo/logo-4.png" srcset="images/pages/logo/logo-4@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>4M Views</span>
+					<img src="images/pages/logo/logo-5.png" srcset="images/pages/logo/logo-5@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>5M Views</span>
+					<img src="images/pages/logo/logo-6.png" srcset="images/pages/logo/logo-6@2x.png 2x">
+				</div>
+				<div class="piece">
+					<span>6M Views</span>
+					<img src="images/pages/logo/logo-7.png" srcset="images/pages/logo/logo-7@2x.png 2x">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section data-id="size">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Size</h3>
+			</div>
+			<div class="group">
+				<div class="diagram c6 push3">
+					<span class="logo half">RHIZOME</span><br>
+					<span class="logo fullsize">RHIZOME</span><br>
+					<span class="logo quarter">RHIZOME</span>
+					<p class="label-1">Scale 50%</p><br>
+					<p class="label-2">Scale 50%</p><br>
+					<p class="label-3">150 px</p><br>
+					<p class="label-4">Minimum WIDTH is <span style="white-space:nowrap;">150 px</span>. if you wanna use even smaller logo, see below.</p>
+				</div>
+			</div>
+
+			<div class="group">
+				<p class="c6 push3">This is a Symbol. We recommend you use it whenever the logo can’t be displayed at larger than 150 px width or when it can’t be printed larger than 1/2”.</p>
+				<span class="logo single c1 push6">R</span>
+			</div>
+		</div>
+	</section>
+
+	<section data-id="construction">
+
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Construction</h3>
+			</div>
+			<div class="group">
+				<p class="c6 push3">The letter O in the logo is a measuring unit. 50 % of an “O” is a size of a safe space around the logo. other elements should not interfere with the safe space of the logo.</p>
+				<img src="images/pages/logo/logo-construction.png" class="c6 push3">
+			</div>
+		</div>
+	</section>
+
+	<section data-id="usage">
+		<div class="grid no-gutters">
+			<div class="section-heading c12">
+				<h3>Usage</h3>
+			</div>
+			<div class="group">
+				<img class="c3" src="images/pages/logo/usage-1-1.png" srcset="images/pages/logo/usage-1-1@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-1-2.png" srcset="images/pages/logo/usage-1-2@2x.png 2x">
+				<img class="c3" src="images/pages/logo/usage-1-3.png" srcset="images/pages/logo/usage-1-3@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-1-4.png" srcset="images/pages/logo/usage-1-4@2x.png 2x">
+			</div>
+
+			<div class="group">
+				<img class="c6" src="images/pages/logo/usage-2-1.png" srcset="images/pages/logo/usage-2-1@2x.png 2x">
+				<img class="c6l" src="images/pages/logo/usage-2-2.jpg" srcset="images/pages/logo/usage-2-2@2x.jpg 2x">
+			</div>
+
+			<div class="group">
+				<img class="c3" src="images/pages/logo/usage-3-1.png" srcset="images/pages/logo/usage-3-1@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-3-2.png" srcset="images/pages/logo/usage-3-2@2x.png 2x">
+				<img class="c3" src="images/pages/logo/usage-3-3.png" srcset="images/pages/logo/usage-3-3@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-3-4.png" srcset="images/pages/logo/usage-3-4@2x.png 2x">
+			</div>
+
+			<div class="group">
+				<img class="c6" src="images/pages/logo/usage-4-1.png" srcset="images/pages/logo/usage-4-1@2x.png 2x">
+				<img class="c6l" src="images/pages/logo/usage-4-2.jpg" srcset="images/pages/logo/usage-4-2@2x.jpg 2x">
+			</div>
+
+			<div class="group">
+				<img class="c3" src="images/pages/logo/usage-5-1.png" srcset="images/pages/logo/usage-5-1@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-5-2.png" srcset="images/pages/logo/usage-5-2@2x.png 2x">
+				<img class="c3" src="images/pages/logo/usage-5-3.png" srcset="images/pages/logo/usage-5-3@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-5-4.png" srcset="images/pages/logo/usage-5-4@2x.png 2x">
+			</div>
+
+			<div class="group">
+				<img class="c3" src="images/pages/logo/usage-6-1.png" srcset="images/pages/logo/usage-6-1@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-6-2.png" srcset="images/pages/logo/usage-6-2@2x.png 2x">
+				<img class="c3" src="images/pages/logo/usage-6-3.png" srcset="images/pages/logo/usage-6-3@2x.png 2x">
+				<img class="c9l" src="images/pages/logo/usage-6-4.png" srcset="images/pages/logo/usage-6-4@2x.png 2x">
+			</div>
+		</div>
+	</section>
+
+	<section data-id="incorrect-usage">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Incorrect Usage</h3>
+			</div>
+			<div class="group">
+				<img class="c4" src="images/pages/logo/wrong-use-1.jpg">
+				<img class="c4" src="images/pages/logo/wrong-use-2.jpg">
+				<img class="c4l" src="images/pages/logo/wrong-use-3.jpg">
+				<img class="c4" src="images/pages/logo/wrong-use-4.jpg">
+				<img class="c4" src="images/pages/logo/wrong-use-5.jpg">
+				<img class="c4l" src="images/pages/logo/wrong-use-6.jpg">
+				<img class="c4" src="images/pages/logo/wrong-use-7.jpg">
+				<img class="c4" src="images/pages/logo/wrong-use-8.jpg">
+				<img class="c4l" src="images/pages/logo/wrong-use-9.jpg">
+			</div>
+		</div>
+
+		<div class="dark">
+			<div class="grid">
+				<p class="c6 push3">LONG STORY SHORT: DON’T MESS WITH THE RHIZOME LOGO TOO MUCH, SIMPLY BECAUSE IT MESSES WITH ITSELF MORE THAN ENOUGH. HOWEVER, IF YOU GO OUT OF YOUR WAY TO DESIGN SOMETHING AS ELEGANT AS THE EXAMPLES BELOW, THEN MAYBE YOU DESERVE TO JUST GO AHEAD AND USE IT WHEREVER YOU WANT.</p>
+				<img class="c4" src="images/pages/logo/bad-logo-1.png" srcset="images/pages/logo/bad-logo-1@2x.png 2x">
+				<img class="c4" src="images/pages/logo/bad-logo-2.png" srcset="images/pages/logo/bad-logo-2@2x.png 2x">
+				<img class="c4l" src="images/pages/logo/bad-logo-3.png" srcset="images/pages/logo/bad-logo-3@2x.png 2x">
+				<img class="c4" src="images/pages/logo/bad-logo-4.png" srcset="images/pages/logo/bad-logo-4@2x.png 2x">
+				<img class="c4" src="images/pages/logo/bad-logo-5.png" srcset="images/pages/logo/bad-logo-5@2x.png 2x">
+				<img class="c4l" src="images/pages/logo/bad-logo-6.png" srcset="images/pages/logo/bad-logo-6@2x.png 2x">
+			</div>
+		</div>
+	</section>
+</div>
+{/template}
+
+
+/**
+ * Color Page
+ */
+{template .ColorPage}
+<div id="color-page" class="page">
+	<section class="masthead">
+		<div class="loader"></div>
+		<div class="grid">
+			<h2>
+				<span class="skewed">COLOR</span>
+				<span>ANSWERS TO ESSENTIAL QUESTIONS LIKE “HOW MANY</span>
+				<span>COLORS DOES R:0, g:0, B:0 CONTAIN?,” “HOW LONG</span>
+				<span>DOES IT TAKE FOR THE PAINT TO DRY?,” AND MORE</span>
+				<span>ON COLOR ORIGIN and VALUES</span>
+			</h2>
+		</div>
+	</section>
+
+	<section data-id="origin">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Origin</h3>
+			</div>
+			<p class="c8 push2">Rhizome's color scheme originates from the R:0 | G:0 | B:0 color that dissolves on the screen. Any color of the 16.7 million values in the RGB spectrum can be used by Rhizome; it’s how it’s chosen that makes the visual identity. On the following pages are some examples of the color use, and a predefined color palette.</p>
+			<img class="c12" src="images/pages/color/origin.jpg">
+		</div>
+	</section>
+
+	<section data-id="color-palette">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Color Palette</h3>
+			</div>
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Download Swatches' /}
+					{param href:'downloads/swatches.zip' /}
+				{/call}
+			</div>
+			<ul class="c12 colors">
+				<li class="c3">
+					<div class="swatch crayon-blue"></div>
+					<p>
+						<span># 0059E6</span>
+						<span>R: 0 | G: 89 | B: 230</span>
+					</p>
+				</li>
+				<li class="c3">
+					<div class="swatch picton-blue"></div>
+					<p>
+						<span># 5DBCF6</span>
+						<span>R: 93 | G: 188 | B: 246</span>
+					</p>
+				</li>
+				<li class="c3">
+					<div class="swatch purple-heart"></div>
+					<p>
+						<span># 7127AA</span>
+						<span>R: 113 | G: 39 | B: 170</span>
+					</p>
+				</li>
+				<li class="c3l">
+					<div class="swatch logan"></div>
+					<p>
+						<span># AEA5D1</span>
+						<span>R: 174 | G: 165 | B: 209</span>
+					</p>
+				</li>
+				<li class="c3">
+					<div class="swatch lime"></div>
+					<p>
+						<span># 1CDC00</span>
+						<span>R: 28 | G: 220 | B: 0</span>
+					</p>
+				</li>
+				<li class="c3">
+					<div class="swatch inch-worm"></div>
+					<p>
+						<span># B2F270</span>
+						<span>R: 178 | G: 242 | B: 112</span>
+					</p>
+				</li>
+				<li class="c3">
+					<div class="swatch fluorescent-pink"></div>
+					<p>
+						<span># ED3590</span>
+						<span>R: 237 | G: 54 | B: 145</span>
+					</p>
+				</li>
+				<li class="c3l">
+					<div class="swatch wewak"></div>
+					<p>
+						<span># EB8B9B</span>
+						<span>R: 236 | G: 139 | B: 155</span>
+					</p>
+				</li>
+				<li class="c6">
+					<div class="swatch black"></div>
+					<p>
+						<span># 000000</span>
+						<span>R: 0 | G: 0 | B: 0</span>
+					</p>
+				</li>
+				<li class="c6l">
+					<div class="swatch white"></div>
+					<p>
+						<span># FFFFFF</span>
+						<span>R: 255 | G: 255 | B: 255</span>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+</div>
+{/template}
+
+
+/**
+ * Typography Page
+ */
+{template .TypographyPage}
+<div id="typography-page" class="page">
+	<section class="masthead">
+		<div class="loader"></div>
+		<div class="grid">
+			<h2>
+				<span class="skewed">TYPE</span>
+				<span>PRIMARY AND SECONDARY TYPOGRAPHY, ASSIGNED</span>
+				<span>STYLES, MODIFIED CHARACTERS & MORE</span>
+			</h2>
+		</div>
+	</section>
+
+	<section data-id="primary-typeface">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Primary Typeface</h3>
+			</div>
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Get GZA Typeface' /}
+					{param href:'http://fontdeck.com/font/gza/seminegra' /}
+				{/call}
+			</div>
+			<div class="c8 push2">
+				<h6>GZA SEMINEGRA<br>IS THE PRIMARY<br>TYPEFACE</h6>
+				<p class="c12 sample">
+					<span class="c2">GZA SEMINEGRA<br>ALL CAPS 36 PT</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+				<p class="c12 sample">
+					<span class="c2">GZA SEMINEGRA<br> 36 PT</span>
+					<span class="c10l">abcdefghijklmnopqrstuvwxyz 0123456789</span>
+				</p>
+				<p class="c12 sample italic">
+					<span class="c2">GZA SEMINEGRA<br> ITALIC</span>
+					<span class="c10l">abcdefghijklmnopqrstuvwxyz 0123456789</span>
+				</p>
+				<p class="c12 sample italic">
+					<span class="c2">GZA SEMINEGRA<br>ALL CAPS ITALIC</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section data-id="modified-characters">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Modified Characters</h3>
+			</div>
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Download Custom Typeface' /}
+					{param href:'downloads/animated-font.zip' /}
+				{/call}
+			</div>
+			<img class="c10 push1" src="images/pages/typography/altered-characters.jpg" srcset="images/pages/typography/altered-characters@2x.jpg 2x">
+		</div>
+	</section>
+
+	<section data-id="secondary-typeface">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Secondary Typeface</h3>
+			</div>
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Get Fugue Typeface' /}
+					{param href:'http://www.radimpesko.com/fonts/fugue' /}
+				{/call}
+			</div>
+			<div class="c8 push2">
+				<h6>FUGUE IS THE<br>SECONDARY<br>TYPEFACE</h6>
+				<p class="c12 sample headline">
+					<span class="c2">FUGUE<br>HEADLINE</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+				<p class="c12 sample">
+					<span class="c2">FUGUE REGULAR<br>ALL CAPS</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+				<p class="c12 sample">
+					<span class="c2">FUGUE REGULAR<br></span>
+					<span class="c10l">abcdefghijklmnopqrstuvwxyz 0123456789</span>
+				</p>
+				<p class="c12 sample italic">
+					<span class="c2">FUGUE<br>ALL CAPS ITALIC</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+				<p class="c12 sample mono">
+					<span class="c2">FUGUE<br>MONO</span>
+					<span class="c10l">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</span>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section data-id="primary-styles">
+		<div class="grid">
+			<div class="section-heading on-black c12">
+				<h3>Primary Styles</h3>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 1.1. LOWERCASE</span>
+					<span>BASED ON: GZA SEMINEGRA</span>
+				</p>
+				<p class="sample">
+					The New York<br>Times reviews<br>“Design and<br>Violence” at<br>moma.org
+				</p>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 1.2. UPPERCASE</span>
+					<span>BASED ON: GZA SEMINEGRA - ALL CAPS</span>
+				</p>
+				<p class="sample">
+					THE NEW YORK<br>TIMES REVIEWS<br>“DESIGN AND<br>VIOLENCE” AT<br>MOMA.ORG
+				</p>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 1.3. | ITALIC</span>
+					<span>BASED ON: GZA SEMINEGRA ITALIC</span>
+					<span>ALIGNED RIGHT & ALIGNED LEFT</span>
+				</p>
+				<p class="sample italic">
+					<span class="underlined">TXT</span>
+					Divorce<br>Your<br>Metadata
+				</p>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 1.4. | SQYUEEWED ITALIC</span>
+					<span>BASED ON: GZA SEMINEGRA ITALIC</span>
+					<span>HORIZONTAL SHEER 24 DEGREES</span>
+				</p>
+				<p class="sample italic skewed">
+					<span class="underlined">TXT</span>
+					Divorce<br>Your<br>Metadata
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section data-id="secondary-styles">
+		<div class="grid style-1">
+			<div class="section-heading on-blue c12">
+				<h3>Secondary Styles</h3>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 2.1.</span>
+					<span>&nbsp;</span>
+					<span>BASED ON: FUGUE HEADLINE</span>
+				</p>
+				<div class="sample">
+					<h6>
+						<span><div class="icon icon-arrow-sloped"></div>NAME SURNAME</span>
+						<span>TITLE OF THE WORK ON IMAGE BELOW (2015)</span>
+					</h6>
+					<p>Online exhibitions are nothing new—here’s Oliver Laric’s incomplete timeline of the form from 2013 (he created this when ARTPLUS called theirs “the first exclusively online biennial exhibition of contemporary art” lol.) And yet reviews of these undertakings remain few and far between, not least at the highest echelons, in the pages of industry publications like Artforum and newspapers like the New York Times.</p>
+				</div>
+			</div>
+			<div class="c3 push2">
+				<p class="caption">
+					<span>STYLE: RHIZOME 2.2.</span>
+					<span>BASED ON: FUGUE HEADLINE,</span>
+					<span>HORIZONTAL SHEER 24 DEGREES</span>
+				</p>
+				<div class="sample skewed">
+					<h6>
+						<span><div class="icon icon-arrow-sloped"></div>NAME SURNAME</span>
+						<span>TITLE OF THE WORK DISPLAYED BELOW (2015)</span>
+					</h6>
+					<p>Online exhibitions are nothing new—here’s Oliver Laric’s incomplete timeline of the form from 2013 (he created this when ARTPLUS called theirs “the first exclusively online biennial exhibition of contemporary art” lol.) And yet reviews of these undertakings remain few and far between, not least at the highest echelons, in the pages of industry publications like Artforum and newspapers like the New York Times.</p>
+				</div>
+			</div>
+		</div>
+		<div class="gradient">
+			<div class="grid no-gutters">
+				<p class="c6 push3">TYPE STYLE JAMES IS USED FOR HEADLINES IN PRINT AND RHIZOME CONTENT THAT NEEDS TO BE VERY VISIBLE. WHEN THERE IS TWO-TEXT LINE ALIGNMENT IN CENTRAL OR WHEN THE TEXT HAS MORE THAN ONE LINE, LOWER TEXT IS ALIGNED RIGHT AND UPPER TEXT IS ALIGNED LEFT BEFORE ROTATED 180 DEGREES.</p>
+			</div>
+		</div>
+		<div class="grid style-2">
+			<div class="c4 push2">
+				<div class="sample type-1">
+					<div>
+						<span>PIRATE BAY</span>
+						<span>DARKWEB COAST</span>
+					</div>
+				</div>
+				<div class="description">
+					<p class="caption">STYLE: RHIZOME 2.3. | JAMES</p>
+					<p>
+						TOP ROW:
+						<br>
+						FUGUE - HEADLINE | SIZE 36 PT | TRACKING 200 PT | ALIGN CENTER
+					</p>
+					<p>
+						BOTTOM ROW:
+						<br>
+						GZA SEMINEGRA | SIZE 36 PT | TRACKING 0 PT | ALIGN CENTER
+					</p>
+					<p>LINE SPACING 80% X-HEIGHT</p>
+				</div>
+			</div>
+			<div class="c4 push1">
+				<div class="sample type-2">
+					<div>
+						<span>PIRATE BAY<br>SAILOR FLAG</span>
+						<span>DARKWEB COAST<br>CRUISE SHIPS</span>
+					</div>
+				</div>
+				<div class="description">
+					<p class="caption">STYLE: RHIZOME 2.4. | JAMES PLUS</p>
+					<p>
+						TOP ROW:
+						<br>
+						FUGUE - HEADLINE | SIZE 36 PT | LEADING 36 PT | TRACKING 200 PT | ALIGN LEFT
+					</p>
+					<p>
+						BOTTOM ROW:
+						<br>
+						GZA SEMINEGRA | SIZE 36 PT | LEADING 36 PT | ALIGN RIGHT
+					</p>
+					<p>LINE SPACING 80% X-HEIGHT</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+{/template}
+
+
+/**
+ * DesignElements Page
+ */
+{template .DesignElementsPage}
+<div id="design-elements-page" class="page">
+	<section class="masthead">
+		<div class="loader"></div>
+		<div class="grid">
+			<h2>
+				<span class="skewed">DESIGN<br>ELEMENTS</span>
+				<span>SKINS, ICONS & A PHOTO EDITOR</span>
+			</h2>
+		</div>
+	</section>
+	<section data-id="photography">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Photography</h3>
+			</div>
+			<div class="group">
+				<div class="c5">
+					<img src="images/pages/design-elements/photo-1.jpg" srcset="images/pages/design-elements/photo-1@2x.jpg">
+					<p class="c8">YOU CAN TREAT PHOTOGRAPHY TO LOOK LIKE THE LOGO WITH THE PHOTO EDITOR BELOW.</p>
+				</div>
+				<div class="c6l lower">
+					<img src="images/pages/design-elements/photo-2.jpg" srcset="images/pages/design-elements/photo-2@2x.jpg">
+				</div>
+			</div>
+			<div class="group photo-uploader not-uploaded">
+				<div class="c6">
+					<div class="photo-image-container"></div>
+					<div class="photo-controls">
+						{call .FramedButton}
+							{param text:'Select Image' /}
+							{param href:'#' /}
+							{param classes:'upload-button' /}
+						{/call}
+					</div>
+				</div>
+				<div class="c6l">
+					<ul class="photo-thumb-container">
+						<li class="thumb" data-id="0"></li>
+						<li class="thumb" data-id="1"></li>
+						<li class="thumb" data-id="2"></li>
+						<li class="thumb" data-id="3"></li>
+					</ul>
+					<div class="photo-controls">
+						{call .FramedButton}
+							{param text:'Download' /}
+							{param classes:'download-button' /}
+						{/call}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section data-id="backgrounds">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Backgrounds</h3>
+			</div>
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Download Backgrounds' /}
+					{param href:'downloads/backgrounds.zip' /}
+				{/call}
+			</div>
+			<div class="group">
+				<div class="c6">
+					<img src="images/pages/design-elements/background-1-1.jpg" srcset="images/pages/design-elements/background-1-1@2x.jpg 2x">
+				</div>
+				<div class="c6l">
+					<img src="images/pages/design-elements/background-1-2.jpg" srcset="images/pages/design-elements/background-1-2@2x.jpg 2x">
+				</div>
+				<div class="c6">
+					<img src="images/pages/design-elements/background-2-1.jpg" srcset="images/pages/design-elements/background-2-1@2x.jpg 2x">
+				</div>
+				<div class="c6l">
+					<img src="images/pages/design-elements/background-2-2.jpg" srcset="images/pages/design-elements/background-2-2@2x.jpg 2x">
+				</div>
+				<div class="c6">
+					<img src="images/pages/design-elements/background-3-1.jpg" srcset="images/pages/design-elements/background-3-1@2x.jpg 2x">
+				</div>
+				<div class="c6l">
+					<img src="images/pages/design-elements/background-3-2.jpg" srcset="images/pages/design-elements/background-3-2@2x.jpg 2x">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section data-id="icons">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Icons</h3>
+			</div>
+			<div class="group">
+				<div class="c12 framed-button-container">
+					{call .FramedButton}
+						{param text:'Download Icons' /}
+						{param href:'downloads/icons.zip' /}
+					{/call}
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/facebook.png" srcset="images/pages/design-elements/facebook@2x.png 2x">
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/instagram.png" srcset="images/pages/design-elements/instagram@2x.png 2x">
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/twitter.png" srcset="images/pages/design-elements/twitter@2x.png 2x">
+				</div>
+				<div class="c3l">
+					<img src="images/pages/design-elements/tumblr.png" srcset="images/pages/design-elements/tumblr@2x.png 2x">
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/facebook-decay.png" srcset="images/pages/design-elements/facebook-decay@2x.png 2x">
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/instagram-decay.png" srcset="images/pages/design-elements/instagram-decay@2x.png 2x">
+				</div>
+				<div class="c3">
+					<img src="images/pages/design-elements/twitter-decay.png" srcset="images/pages/design-elements/twitter-decay@2x.png 2x">
+				</div>
+				<div class="c3l">
+					<img src="images/pages/design-elements/tumblr-decay.png" srcset="images/pages/design-elements/tumblr-decay@2x.png 2x">
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+{/template}
+
+
+/**
+ * Examples Page
+ */
+{template .ExamplesPage}
+<div id="examples-page" class="page">
+	<section class="masthead">
+		<div class="loader"></div>
+		<div class="grid">
+			<h2>
+				<span class="skewed">.EXE</span>
+				<span>FROM LETTERHEAD TO LOLLIPOPS, INCLUDING</span>
+				<span>EXAMPLES OF STATIONERY, APPAREL & PRINTED</span>
+				<span>MATERIALS</span>
+			</h2>
+		</div>
+	</section>
+	<section data-id="business-card">
+		<div class="grid">
+			<div class="c12 framed-button-container">
+				{call .FramedButton}
+					{param text:'Download Templates' /}
+					{param href:'/downloads/examples.zip' /}
+				{/call}
+			</div>
+			<div class="section-heading c12">
+				<h3>Business Card</h3>
+			</div>
+			<div class="group">
+				<img class="c4 push2 drop-shadow" src="images/pages/examples/business-card-back-1.jpg" srcset="images/pages/examples/business-card-back-1@2x.jpg 2x">
+				<img class="c4 push1 drop-shadow" src="images/pages/examples/business-card-back-2.jpg" srcset="images/pages/examples/business-card-back-2@2x.jpg 2x">
+				<img class="c4 push7 drop-shadow last" src="images/pages/examples/business-card-front.jpg" srcset="images/pages/examples/business-card-front@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="letterhead">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Letterhead</h3>
+			</div>
+			<div class="group">
+				<img class="c6 push3 drop-shadow" src="images/pages/examples/letterhead-blank.jpg" srcset="images/pages/examples/letterhead-blank@2x.jpg 2x">
+				<img class="c6 push3 drop-shadow" src="images/pages/examples/letterhead-text.jpg" srcset="images/pages/examples/letterhead-text@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="envelope">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Envelope</h3>
+			</div>
+			<div class="group">
+				<img class="c10 push1 drop-shadow" src="images/pages/examples/envelope.jpg" srcset="images/pages/examples/envelope@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="mailing-label">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Mailing Label</h3>
+			</div>
+			<div class="group">
+				<img class="c11l drop-shadow" src="images/pages/examples/stickers.jpg" srcset="images/pages/examples/stickers@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="thank-you-card">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Thank You Card</h3>
+			</div>
+			<div class="group">
+				<img class="c6 push3 drop-shadow" src="images/pages/examples/thank-you-card.jpg" srcset="images/pages/examples/thank-you-card@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="poster">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Poster</h3>
+			</div>
+			<div class="group">
+				<img class="c6 push3" src="images/pages/examples/poster.jpg" srcset="images/pages/examples/poster@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="apparel">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Apparel</h3>
+			</div>
+			<div class="group">
+				<img class="c6" src="images/pages/examples/shirt-basic-1.jpg" srcset="images/pages/examples/shirt-basic-1@2x.jpg 2x">
+				<img class="c6l" src="images/pages/examples/shirt-basic-2.jpg" srcset="images/pages/examples/shirt-basic-2@2x.jpg 2x">
+				<img class="c6" src="images/pages/examples/shirt-1.jpg" srcset="images/pages/examples/shirt-1@2x.jpg 2x">
+				<img class="c6l" src="images/pages/examples/shirt-2.jpg" srcset="images/pages/examples/shirt-2@2x.jpg 2x">
+				<img class="c6" src="images/pages/examples/shirt-bad-1.jpg" srcset="images/pages/examples/shirt-bad-1@2x.jpg 2x">
+				<img class="c6l" src="images/pages/examples/shirt-bad-2.jpg" srcset="images/pages/examples/shirt-bad-2@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="bags">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Bags</h3>
+			</div>
+			<div class="group">
+				<img class="c9 push1" src="images/pages/examples/bags.jpg" srcset="images/pages/examples/bags@2x.jpg 2x">
+				<img class="c6 push3" src="images/pages/examples/bagpack.jpg" srcset="images/pages/examples/bagpack@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+	<section data-id="lollipops">
+		<div class="grid">
+			<div class="section-heading c12">
+				<h3>Lollipops</h3>
+			</div>
+			<div class="group">
+				<img class="c9 push1" src="images/pages/examples/lollipop-1.jpg" srcset="images/pages/examples/lollipop-1@2x.jpg 2x">
+				<img class="c9 push1" src="images/pages/examples/lollipop-2.jpg" srcset="images/pages/examples/lollipop-2@2x.jpg 2x">
+			</div>
+		</div>
+	</section>
+</div>
+{/template}

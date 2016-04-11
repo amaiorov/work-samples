@@ -1,0 +1,82 @@
+#intro-page{
+	@include retina-background( 'pages/intro/background.jpg' );
+	background-position: center center;
+	background-size: cover;
+	background-attachment: scroll;
+
+	>section{
+		position: relative;
+		width: 100%;
+
+		&:nth-child(1) {
+			.grid{
+				height: 100%;
+				@include flexbox((
+					display: flex,
+					align-items: center
+				));
+			}
+
+			h1{
+				text-transform: uppercase;
+				font-family: $font_fugue;
+				font-size: 7.2rem;
+
+				>span{
+					display: block;
+					line-height: 1.1;
+				}
+
+				.icon{
+					line-height: 1.7;
+				}
+
+				.year{
+					line-height: 1.8;
+				}
+
+				@include breakpoint($break_mobile) {
+					font-size: 10vmin;
+				}
+			}
+		}
+
+		&:nth-child(2) {
+			height: auto !important;
+
+			@include flexbox((
+				display: flex,
+				align-items: center
+			));
+
+			.grid{
+				margin-top: 3rem;
+				margin-bottom: 3rem;
+				background: white;
+				border: 1px solid black;
+				@include box-sizing(border-box);
+			}
+
+			.introduction{
+				padding: 3rem;
+
+				p{
+					font-family: $font_gza;
+					font-size: 4.6rem;
+					line-height: 1.25;
+					color: black;
+					text-transform: none;
+					margin-bottom: 2.5rem;
+
+					&:last-child{
+						margin-bottom: 0;
+					}
+
+					@include breakpoint($break_mobile) {
+						font-size: 1.8rem;
+					}
+				}
+			}
+		}
+	}
+}

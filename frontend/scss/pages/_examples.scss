@@ -1,0 +1,16 @@
+#examples-page{
+	.masthead {
+		background: $color_picton_blue;
+	}
+	>section {
+		&[data-id="business-card"] {
+			.last{
+				margin-top: span(.8);
+			}
+		}
+
+		.group{
+			margin-bottom: span(2);
+		}
+	}
+}

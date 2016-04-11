@@ -1,0 +1,212 @@
+// --- imports ---
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+@import "retina";
+@import "fonts";
+@import "icons";
+@import "susy";
+@import "breakpoint";
+
+// --- Global vars ---
+$min_width: 320px;
+$min_height: 320px;
+
+$break_mobile: max-width 680px;
+$break_below_desktop: max-width 1240px;
+$break_above_mobile: min-width 680px;
+
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeOutQuint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+
+$color_patterns_blue: #E0F4FD;
+$color_light_gray: #a6a6a6;
+$color_lighter_gray: #d6d6d6;
+$color_fluorescent_pink: #ed3590;
+$color_wewak: #eb8b9b;
+$color_lime: #1cdc00;
+$color_inch_worm: #b2f270;
+$color_purple_heart: #7127aa;
+$color_logan: #aea5d1;
+$color_crayon_blue: #0059e6;
+$color_picton_blue: #5dbcf6;
+$color_white: #ffffff;
+$color_black: #000000;
+
+.fluorescent-pink{
+  background-color: $color_fluorescent_pink;
+}
+
+.wewak{
+  background-color: $color_wewak;
+}
+
+.lime{
+  background-color: $color_lime;
+}
+
+.inch-worm{
+  background-color: $color_inch_worm;
+}
+
+.purple-heart{
+  background-color: $color_purple_heart;
+}
+
+.logan{
+  background-color: $color_logan;
+}
+
+.crayon-blue{
+  background-color: $color_crayon_blue;
+}
+
+.picton-blue{
+  background-color: $color_picton_blue;
+}
+
+.white{
+  background-color: $color_white;
+}
+
+.black{
+  background-color: $color_black;
+}
+
+// -- Global Mixins --
+@mixin absoluteTopLeft() {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin font-smoothing() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin backfaceHidden() {
+  -webkit-backface-visibility: hidden;
+}
+
+@mixin grab-cursor {
+  // http://www.google.com/intl/en_ALL/mapfiles/openhand.cur
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+
+@mixin grabbing-cursor {
+  // http://www.google.com/intl/en_ALL/mapfiles/closedhand.cur
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: -o-grabbing !important;
+  cursor: -ms-grabbing !important;
+  cursor: grabbing !important;
+}
+
+//
+html, body{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+html{
+  font-family: $font_system;
+  font-size: 10px;
+
+  &.touch{
+    *{
+      outline: none;
+      outline-style: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      @include user-select('none');
+    }
+  }
+}
+
+body{
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+h1,h2,h3,h4,h5,h6,b{
+  @include font-smoothing;
+}
+
+p{
+  text-transform: uppercase;
+  font-family: $font_fugue_headline;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  color: $color_light_gray;
+  @include font-smoothing;
+}
+
+a{
+  text-decoration: none;
+}
+
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+    box-shadow:none;
+}
+
+.logo{
+  text-transform: uppercase;
+  font-family: $font_gza;
+}
+
+.framed-button{
+  position: relative;
+  display: inline-block;
+  font-family: $font_avenir_light;
+  text-transform: uppercase;
+  border: 1px solid $color_picton_blue;
+  font-size: 12px;
+  background: transparent;
+  overflow: hidden;
+  @include transition(background .3s $easeOutQuint);
+
+  >span{
+    display: block;
+    padding: 18px 35px;
+    color: $color_picton_blue;
+    @include translateY(0);
+    @include transition(transform .3s $easeOutQuint, opacity .3s $easeOutQuint);
+  }
+
+  &:after{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 18px 35px;
+    color: white;
+    opacity: 0;
+    @include translateY(50%);
+    @include transition(transform .3s $easeOutQuint, opacity .3s $easeOutQuint);
+  }
+
+  &:hover{
+    background: $color_picton_blue;
+
+    >span{
+      opacity: 0;
+      @include translateY(-50%);
+    }
+
+    &:after{
+      opacity: 1;
+      @include translateY(0);
+    }
+  }
+}

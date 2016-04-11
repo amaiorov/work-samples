@@ -1,0 +1,321 @@
+#logo-page{
+	.masthead {
+		background: $color_crayon_blue;
+	}
+	>section{
+		position: relative;
+
+		.group{
+			margin: span(2) 0;
+		}
+
+		&[data-id="overview"] {
+			.download-button-container{
+				a{
+					margin-bottom: 2rem;
+
+					&:last-child{
+						margin-bottom: 0;
+					}
+				}
+
+				.no-png{
+					font-size: 12px;
+					line-height: 1.4;
+				}
+			}
+
+			.scroll-box {
+				font-family: $font_fugue;
+				margin-bottom: 100px;
+				margin-top: 100px;
+				position: relative;
+				&:before {
+					content: '';
+					display: block;
+					width: 1px;
+					height: 100%;
+					position: absolute;
+					left: 10px;
+					top: 0;
+					background: $color_light_gray;
+				}
+				.icon-clock {
+					font-size: 2rem;
+					left: 0;
+					position: absolute;
+					top: -20px;
+				}
+				.piece {
+					@include span(5 of 6);
+					@include push(1 of 6);
+					padding: 200px 0 200px 0;
+					&:last-child {
+						padding-bottom: 0;
+						span {
+							margin-top: 97px;
+						}
+					}
+					img {
+						@include full;
+					}
+					span {
+						@include rotate(-90deg);
+						@include transform-origin(0, 0);
+						background: #fff;
+						color: $color_light_gray;
+						font-size: 1.2rem;
+						left: -1px;
+						letter-spacing: 1px;
+						margin-top: 90px;
+						padding: 5px 10px;
+						position: absolute;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+
+		&[data-id="size"] {
+			.logo {
+				font-size: 12rem;
+				&.single {
+					margin-top: 10rem;
+				}
+			}
+			.diagram {
+				position: relative;
+				p {
+					background: #fff;
+					font-size: 1.2rem;
+					padding: 0 1rem;
+					position: absolute;
+				}
+				.label-1 {
+					@include rotate(-90deg);
+					@include transform-origin(100%, 50%);
+					right: 0;
+					top: 5rem;
+				}
+				.label-2 {
+					left: 12rem;
+					top: 36rem;
+				}
+				.label-3 {
+					border-top: 1px dashed $color_light_gray; 
+					left: 32rem;
+					padding: 0 5.4rem;
+					top: 43rem;
+					&:before,
+					&:after {
+						background: $color_light_gray;
+						content: '';
+						display: block;
+						height: 1rem;
+						position: absolute;
+						top: -0.5rem;
+						width: 1px;
+					}
+					&:before {
+						left: 0;
+					}
+					&:after {
+						right: 0;
+					}
+				}
+				.label-4 {
+					right: -13rem;
+					top: 43rem;
+					width: 10rem;
+					&:before,
+					&:after {
+						background: $color_light_gray;
+						content: '';
+						display: block;
+						height: 0.5rem;
+						left: -1rem;
+						position: absolute;
+						top: calc(100% + 3rem);
+						width: 1px;
+					}
+					&:before {
+						@include rotate(135deg);
+						@include transform-origin(0, 0);
+					}
+					&:after {
+						@include rotate(-135deg);
+						@include transform-origin(0, 0);
+					}
+				}
+				.logo {
+					background: #fff;
+					display: inline-block;
+					&:before,
+					&:after {
+						content: '';
+						display: block;
+						position: absolute;
+						z-index: -1;
+					}
+					&:before {
+						background: repeating-linear-gradient(0deg, $color_light_gray, transparent 2px, transparent 4px, $color_light_gray 5px);
+						height: 100%;
+						width: 1px;
+					}
+					&:after {
+						background: repeating-linear-gradient(90deg, $color_light_gray, transparent 2px, transparent 4px, $color_light_gray 5px);
+						height: 1px;
+						width: 100%;
+					}
+					&.fullsize {
+						font-size: 12rem;
+						margin: 9rem 0 6rem 5rem;
+						padding-right: 2rem;
+						&:before {
+							height: 37rem;
+							left: 0;
+							top: 0;
+						}
+						&:after {
+							width: 50%;
+							right: 0;
+							top: 21rem;
+						}
+					}
+					&.half {
+						font-size: 6rem;
+						margin-top: -3rem;
+						padding: 0 2rem 3rem 0;
+						&:before {
+							height: 21rem;
+							right: 0;
+							top: 0;
+						}
+						&:after {
+							left: 0;
+							top: 0;
+						}
+					}
+					&.quarter {
+						font-size: 3.156rem;
+						margin: 2.5rem 0 0 31rem;
+						padding: 0 1rem;
+						&:before {
+							height: 24rem;
+							right: 0;
+							top: 37rem;
+						}
+						&:after {
+							left: 0;
+							top: 37rem;
+						}
+					}
+				}
+			}
+			@include breakpoint($break_below_desktop) {
+				.diagram {
+					@include span(12 of 12);
+					text-align: center;
+					.label-1 {
+						@include rotate(-90deg);
+						@include transform-origin(100%, 50%);
+						background: #fff;
+						right: 50%;
+						top: 17rem;
+						z-index: 2;
+					}
+					.label-2 {
+						@include rotate(-90deg);
+						@include transform-origin(100%, 50%);
+						left: auto;
+						right: 50%;
+						top: 47rem;
+						z-index: 2;
+					}
+					.label-3 {
+						display: inline-block;
+						position: relative;
+						left: 0;
+						padding: 0 6rem;
+						top: 1rem;
+						white-space: nowrap;
+						width: 3rem;
+					}
+					.label-4 {
+						display: inline-block;
+						left: 0;
+						position: relative;
+						top: 7rem;
+						width: 20rem;
+						z-index: 1;
+						&:before,
+						&:after {
+							left: 50%;
+							top: calc(100% + 6rem);
+						}
+					}
+				}
+				.logo {
+					display: inline-block !important;
+					margin: 0 !important;
+					max-width: 100%;
+					padding: 0 !important;
+					padding-bottom: 23rem !important;
+					position: relative;
+					text-align: center;
+					width: auto;
+					&.half {
+						font-size: 12rem !important;
+						&:before {
+							left: 50% !important;
+							top: 12rem !important;
+							z-index: 1;
+						}
+					}
+					&.fullsize {
+						font-size: 6rem !important;
+						&:before {
+							height: 21rem !important;
+							left: 50% !important;
+							top: 7rem !important;
+							z-index: 1;
+						}
+					}
+					&.quarter {
+						padding-bottom: 0 !important;
+						&:before {
+							height: 18rem !important;
+							left: 50% !important;
+							top: 8rem !important;
+							z-index: 1;
+						}
+						&:after {
+							display: none;
+						}
+					}
+					&.single {
+						display: block;
+						padding-bottom: 0 !important;
+						width: 100%;
+					}
+				}
+
+			}
+		}
+		&[data-id="construction"] {
+			img {
+				margin-top: 10rem;
+			}
+		}
+		&[data-id="incorrect-usage"] {
+			.dark{
+				background: black;
+				padding: 10rem 0;
+
+				p{
+					margin-bottom: 6rem;
+				}
+			}
+		}
+	}
+}

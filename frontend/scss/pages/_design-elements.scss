@@ -1,0 +1,135 @@
+#design-elements-page{
+	.masthead {
+		background: $color_fluorescent_pink;
+		.skewed {
+			font-size: 11.5rem !important;
+		}
+	}
+	>section {
+		.group{
+			margin-bottom: span(2);
+
+			&.photo-uploader{
+				@include breakpoint($break_mobile) {
+					display: none;
+				}
+			}
+		}
+
+		&[data-id="photography"] {
+			img{
+				width: 100%;
+			}
+
+			p{
+				line-height: 1.2;
+				margin-top: 5rem;
+			}
+
+			.lower{
+				margin-top: span(1);
+			}
+
+			.photo-image-container, .photo-thumb-container{
+				height: 0;
+				padding-bottom: 100%;
+
+				img{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: auto;
+					max-height: 100%;
+					@include translate(-50%, -50%);
+				}
+			}
+
+			.photo-image-container{
+				position: relative;
+				outline: 1px solid $color_lighter_gray;
+			}
+
+			.photo-thumb-container{
+				$thumb_margin: gutter();
+
+				li{
+					position: relative;
+					@include inline-block(top);
+					width: calc(50% - #{$thumb_margin});
+					height: 0;
+					padding-bottom: calc(50% - #{$thumb_margin});
+					margin: #{$thumb_margin};
+					outline: 1px solid $color_lighter_gray;
+					@include transition(outline .5s);
+
+					&[data-id="0"] {
+						margin-top: 0;
+						margin-left: 0;
+					}
+
+					&[data-id="1"] {
+						margin-top: 0;
+						margin-right: 0;
+					}
+
+					&[data-id="2"] {
+						margin-left: 0;
+					}
+
+					&[data-id="3"] {
+						margin-right: 0;
+					}
+				}
+			}
+
+			.photo-controls{
+				position: relative;
+
+				.framed-button{
+					float: right;
+					margin-top: 4rem;
+				}
+			}
+
+			.photo-uploader{
+				&.not-uploaded{
+					.download-button{
+						display: none;
+					}
+					.photo-image-container{
+						background-size: 100% 100%;
+						background-image: image-url('pages/design-elements/photo-placeholder-normal.jpg');
+					}
+					.thumb{
+						background-size: 100% 100%;
+						background-image: image-url('pages/design-elements/photo-placeholder-small.jpg');
+					}
+				}
+				&:not(.not-uploaded) {
+					.thumb{
+						cursor: pointer;
+
+						&.active{
+							outline: 1px solid $color_picton_blue;
+						}
+					}
+				}
+			}
+		}
+
+		&[data-id="backgrounds"] {
+			img{
+				width: 100%;
+				outline: 1px solid $color_light_gray;
+			}
+		}
+
+		&[data-id="icons"] {
+			text-align: center;
+
+			img{
+				max-width: 12rem;
+			}
+		}
+	}
+}

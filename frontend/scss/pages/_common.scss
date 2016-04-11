@@ -1,0 +1,158 @@
+.full{
+	margin: 0;
+	height: 100vh;
+	min-height: 100vh;
+}
+
+.group{
+	@include full;
+	@include clearfix;
+	overflow: visible;
+}
+
+.masthead{
+	position: relative;
+	@extend .full;
+
+	.loader{
+		@include absoluteTopLeft;
+		width: 100%;
+		height: 5px;
+    	@include retina-background( 'gradient-loader.jpg' );
+    	background-size: 100% auto;
+    	visibility: visible;
+		@include transition(transform .25s, visibility .25s);
+
+		&.hide{
+			visibility: hidden;
+			@include translateY(-100%);
+		}
+
+		@include breakpoint($break_mobile) {
+			top: 48px;
+		}
+	}
+
+	.grid{
+		height: 100%;
+		@include flexbox((
+			display: flex,
+			align-items: center
+		));
+	}
+
+	h2{
+		@include span(12);
+		@include push(2);
+		>span{
+			display: block;
+			font-size: 3rem;
+			padding: 0 0 0.5rem 5rem;
+			@include breakpoint($break_mobile) {
+				// display: inline;
+				font-size: 1.3rem;
+				padding-left: 1rem;
+			}
+			&:first-child{
+				font-size: 23rem;
+				padding: 0 0 8rem 0;
+				@include breakpoint($break_mobile) {
+					display: block;
+					font-size: 6rem;
+					padding-bottom: 3rem;
+				}
+			}
+		}
+
+		@include breakpoint($break_mobile) {
+			@include push(0);
+			font-size: 10vmin;
+		}
+	}
+}
+
+.skewed{
+	font-family: $font_gza_italic !important;
+	@include skewX(-24deg);
+	@include transform-origin(right, bottom);
+}
+
+.framed-button{
+	display: inline-block;
+}
+
+.framed-button-container{
+	margin-bottom: span(.5);
+	text-align: right;
+
+	[data-mobile] & {
+		display: none;
+	}
+}
+
+
+.drop-shadow{
+	@include box-shadow(rgba(black, .25) 1rem 1rem 2rem);
+}
+
+section{
+	margin: span(1) 0;
+
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+img{
+	max-width: 100%;
+}
+
+.section-heading {
+	@include background-image(linear-gradient(0deg, transparent 0, transparent 14px, $color_light_gray 14px, $color_light_gray 16px, transparent 16px));
+	text-align: left;
+	margin-bottom: span(.6);
+
+	@include breakpoint($break_mobile) {
+		margin-bottom: span(1.2);
+	}
+
+	h3 {
+		position: relative;
+		display: inline-block;
+		background: black;
+		color: white;
+		font-size: 1.3rem;
+		padding: 1rem 2rem;
+		min-width: span(1);
+		letter-spacing: 3px;
+		text-align: center;
+		@include box-sizing(border-box);
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 2rem;
+			height: 100%;
+			background: white;
+		}
+	}
+
+	&.on-blue{
+		h3:after{
+			background: $color_patterns_blue;
+		}
+	}
+
+	&.on-black{
+		h3{
+			background: white;
+			color: black;
+		}
+
+		h3:after{
+			background: black;
+		}
+	}
+}

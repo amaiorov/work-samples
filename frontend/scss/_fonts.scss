@@ -1,0 +1,80 @@
+@include font-face(
+	'gzaseminegra',
+    font-files(
+    	'gza/gza-seminegra-webfont.eot',
+    	'gza/gza-seminegra-webfont.eot?#iefix',
+    	'gza/gza-seminegra-webfont.woff2',
+        'gza/gza-seminegra-webfont.woff',
+    	'gza/gza-seminegra-webfont.ttf',
+    	'gza/gza-seminegra-webfont.svg#gzaseminegra'));
+
+@include font-face(
+    'gzaseminegra_italic',
+    font-files(
+        'gza-italic/gza-seminegraitalic-webfont.eot',
+        'gza-italic/gza-seminegraitalic-webfont.eot?#iefix',
+        'gza-italic/gza-seminegraitalic-webfont.woff2',
+        'gza-italic/gza-seminegraitalic-webfont.woff',
+        'gza-italic/gza-seminegraitalic-webfont.ttf',
+        'gza-italic/gza-seminegraitalic-webfont.svg#gzaseminegra_italic'));
+
+@include font-face(
+    'fugueregular',
+    font-files(
+        'fugue/fugue_regular-webfont.eot',
+        'fugue/fugue_regular-webfont.eot?#iefix',
+        'fugue/fugue_regular-webfont.woff2',
+        'fugue/fugue_regular-webfont.woff',
+        'fugue/fugue_regular-webfont.ttf',
+        'fugue/fugue_regular-webfont.svg#fugueregular'));
+
+@include font-face(
+    'fugueheadline',
+    font-files(
+        'fugue-headline/fugue_headline-webfont.eot',
+        'fugue-headline/fugue_headline-webfont.eot?#iefix',
+        'fugue-headline/fugue_headline-webfont.woff2',
+        'fugue-headline/fugue_headline-webfont.woff',
+        'fugue-headline/fugue_headline-webfont.ttf',
+        'fugue-headline/fugue_headline-webfont.svg#fugueheadline'));
+
+@include font-face(
+    'fugueitalic',
+    font-files(
+        'fugue-italic/fugue_regular_italic-webfont.eot',
+        'fugue-italic/fugue_regular_italic-webfont.eot?#iefix',
+        'fugue-italic/fugue_regular_italic-webfont.woff2',
+        'fugue-italic/fugue_regular_italic-webfont.woff',
+        'fugue-italic/fugue_regular_italic-webfont.ttf',
+        'fugue-italic/fugue_regular_italic-webfont.svg#fugueitalic'));
+
+@include font-face(
+    'fuguemono',
+    font-files(
+        'fugue-mono/fugue_mono-webfont.eot',
+        'fugue-mono/fugue_mono-webfont.eot?#iefix',
+        'fugue-mono/fugue_mono-webfont.woff2',
+        'fugue-mono/fugue_mono-webfont.woff',
+        'fugue-mono/fugue_mono-webfont.ttf',
+        'fugue-mono/fugue_mono-webfont.svg#fuguemono'));
+
+@include font-face(
+    'avenir35_light',
+    font-files(
+        'avenir-light/avenir-light-webfont.eot',
+        'avenir-light/avenir-light-webfont.eot?#iefix',
+        'avenir-light/avenir-light-webfont.woff2',
+        'avenir-light/avenir-light-webfont.woff',
+        'avenir-light/avenir-light-webfont.ttf',
+        'avenir-light/avenir-light-webfont.svg#avenir35_light'));
+
+
+$font_gza: 'gzaseminegra';
+$font_gza_italic: 'gzaseminegra_italic';
+$font_fugue: 'fugueregular';
+$font_fugue_headline: 'fugueheadline';
+$font_fugue_italic: 'fugueitalic';
+$font_fugue_mono: 'fuguemono';
+$font_avenir_light: 'avenir35_light';
+
+$font_system: $font_fugue_headline, sans-serif;
