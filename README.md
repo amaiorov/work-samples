@@ -1,4 +1,4 @@
-#Alex Maiorov work samples
+# Alex Maiorov work samples
 
 A collection of samples, snippets and such that represent some of my work.
 
